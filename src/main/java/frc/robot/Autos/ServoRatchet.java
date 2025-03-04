@@ -42,7 +42,7 @@ public class ServoRatchet extends SequentialCommandGroup {
       new WaitCommand(0.5),
       new ServoAngleCommand(servoSub, 247.5),
       new WaitCommand(0.5),
-      new ServoAngleCommand(servoSub, 270),
+      new ServoAngleCommand(servoSub, 270.1),
       new WaitCommand(0.5),
       new ServoAngleCommand(servoSub, 247.5),
       new WaitCommand(0.5),
