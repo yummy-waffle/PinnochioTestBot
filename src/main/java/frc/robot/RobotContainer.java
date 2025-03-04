@@ -4,7 +4,9 @@
 
 package frc.robot;
 
+import frc.robot.Autos.GuyFricksWithRobot;
 import frc.robot.Autos.ServoRatchet;
+import frc.robot.commands.ServoShake;
 import frc.robot.commands.ServoCommand;
 import frc.robot.subsystems.ServoSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
@@ -23,6 +25,8 @@ public class RobotContainer {
   private final ServoSubsystem servoSub = new ServoSubsystem();
   private final ServoCommand servoCommand = new ServoCommand(servoSub, controller);
   private final ServoRatchet servoRatchet = new ServoRatchet(servoSub);
+  private final GuyFricksWithRobot guyFricksWithRobot = new GuyFricksWithRobot(servoSub);
+  private final ServoShake servoShake = new ServoShake(servoSub);
   // ServoShake servoShake = new ServoShake(servoSub);
 
   {
