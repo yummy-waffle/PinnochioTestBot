@@ -13,6 +13,7 @@ To open this project in VSCode:
 3a. If you need to sign in, sign in using your personal Github account.
 
 3. Click 'Clone Repository', then paste the URL. Select where on the computer you want it to go, and youre done!
+
 *not from 2763-2025*
 This is the repo for the TestBot of FRC team 2773. 
 This code is intended as a testing and learning platform for the newer programmers and possible testing platform during competition.
