@@ -1,0 +1,12 @@
+--CAN spark max controls--
+--better servo controls--
+--PWM sparks just in case--
+xx gyroscope/navX thingy (most likely just gyro) xx
+xx cameras (maybe just off roborio) xx
+xx shuffleboard xx
+-- Xbox controller --
+xx joysticks xx
+xx possibly led control xx
+xx pneumatics if added to main bot xx
+xx pid-controlled motors xx
+-- streamlined system outs for testing and debugging (high priority) --

@@ -4,39 +4,40 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ServoSubsystem;
+import frc.robot.subsystems.SparkMaxSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class ServoAngleCommand extends Command {
-  /** Creates a new ServoAngleCommand. */
-  ServoSubsystem servoSub;
-  private final double targetAngle;
-  public ServoAngleCommand(ServoSubsystem servoSub, double angle) {
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(servoSub);
-    this.servoSub = servoSub;
-    this.targetAngle = angle;
+public class SparkMaxCommand extends Command {
+  /** Creates a new SparkMaxCommand. */
+  final XboxController controller;
+  SparkMaxSubsystem sparkMaxSub;
+
+  public SparkMaxCommand(SparkMaxSubsystem sparkMaxSub, XboxController controller) {
+    addRequirements(sparkMaxSub);
+    this.sparkMaxSub = sparkMaxSub;
+    this.controller = controller;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    servoSub.setServoAngle(targetAngle);
-    System.out.println("Servo Angle target: " + targetAngle);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }
