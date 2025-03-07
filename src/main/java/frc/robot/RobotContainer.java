@@ -4,9 +4,8 @@
 
 package frc.robot;
 
-import frc.robot.Autos.GuyFricksWithRobot;
-import frc.robot.Autos.ServoRatchet;
-import frc.robot.commands.ServoShake;
+import frc.robot.Autos.GuyCommand;
+import frc.robot.Autos.RatchetCommand;
 import frc.robot.commands.ServoCommand;
 import frc.robot.subsystems.ServoSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
@@ -24,18 +23,14 @@ public class RobotContainer {
   private final XboxController controller = new XboxController(0);
   private final ServoSubsystem servoSub = new ServoSubsystem();
   private final ServoCommand servoCommand = new ServoCommand(servoSub, controller);
-  private final ServoRatchet servoRatchet = new ServoRatchet(servoSub);
-  private final GuyFricksWithRobot guyFricksWithRobot = new GuyFricksWithRobot(servoSub);
-  private final ServoShake servoShake = new ServoShake(servoSub);
-  // ServoShake servoShake = new ServoShake(servoSub);
-
+  private final RatchetCommand ratchetCommand = new RatchetCommand(servoSub);
+  private final GuyCommand guyCommand = new GuyCommand(servoSub);
   {
     servoSub.setDefaultCommand(servoCommand);
   }
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the trigger bindings
     configureBindings();
   }
 
@@ -58,7 +53,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An example command will be run in autonomous
-    return servoRatchet;
+    return ratchetCommand;
   }
 }
