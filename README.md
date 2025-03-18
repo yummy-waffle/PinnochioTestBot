@@ -20,3 +20,5 @@ This is the repo for the TestBot of FRC team 2773.
 This code is intended as a testing and learning platform for the newer programmers and possible testing platform during competition.
 
 **If you add code for the purpose of being funny, please put it in a new branch. Don't corrupt our corrupt code.**
+
+**READ THE READMETOO FILE AND ALL CODE COMMENTS**
