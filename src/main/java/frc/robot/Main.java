@@ -2,6 +2,8 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+// DON'T YOU FREAKING DARE TOUCH THIS CODE. IT WILL BREAK AND IT WILL BE ALL YOUR FAULT.
+
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;

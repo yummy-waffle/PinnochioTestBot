@@ -6,54 +6,60 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+
+import frc.robot.Out;
 import frc.robot.subsystems.ServoSubsystem;
 
-/* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class ServoCommand extends Command {
-  /** Creates a new ServoCommand. */
   ServoSubsystem servoSub;
   XboxController controller;
 
   boolean toggle = true;
   boolean mode = false;
+
   public ServoCommand(ServoSubsystem servoSub, XboxController controller) {
-    
+
+    // addRequirements is honestly kinda weird. Don't touch it if you don't know what it does.
     addRequirements(servoSub);
     this.servoSub = servoSub;
     this.controller = controller;
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     servoSub.servoToggle(toggle);
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (controller.getAButtonPressed() & mode == false) {
-      servoSub.servoToggle(toggle);
-      toggle = !toggle;
-    }
-    else if (mode == true) {
-      servoSub.servoSet(((controller.getLeftX()+1)/2));
-    }
+    // if/else statements for controls. Call servoSub methods inside this boolean
+    // logic to do actions. Toggle and mode can be used as shown
+    // to control what actions are done. Select all the commented out code and push
+    // ctrl + / to uncomment all lines selected.
 
-    if (controller.getBButtonPressed() && controller.getRightBumperButton()) {
-      mode = !mode;
-      System.out.println("Mode changed");
-      System.out.println("Mode: " + mode);
-    }
+    // if (controller.getAButtonPressed() & mode == false) {
+    // servoSub.servoToggle(toggle);
+    // toggle = !toggle;
+    // }
+    // else if (mode == true) {
+    // servoSub.servoSet(((controller.getLeftX()+1)/2));
+    // }
+
+    // if (controller.getBButtonPressed() && controller.getRightBumperButton()) {
+    // mode = !mode;
+    // Out.put("Mode changed");
+    // Out.put("Mode: " + mode);
+    // }
   }
 
-  // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+  }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    Out.put("ServoCommand finished");
     return false;
+
   }
 }

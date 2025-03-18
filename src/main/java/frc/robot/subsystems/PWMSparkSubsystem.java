@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class PWMSparkSubsystem extends SubsystemBase {
-  /** Creates a new PWMSparkSubsystem. */
   PWMSparkMax spark;
 
   public PWMSparkSubsystem(int id) {
@@ -17,9 +16,9 @@ public class PWMSparkSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
   }
 
+  // Sets the specified spark to a decimal speed between 0 and 1
   public void set(double speed) {
     spark.set(speed);
   }

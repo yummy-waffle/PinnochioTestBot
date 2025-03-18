@@ -16,4 +16,11 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  // Change the PWM port for the servo
+  public static final int servoPWMPort = 0;
+
+  // Change this to the first number on the Spark Max that you are using.
+  public static final int SparkMaxID1 = 1;
+
 }

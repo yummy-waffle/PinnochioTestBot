@@ -5,11 +5,11 @@
 package frc.robot;
 
 import frc.robot.commands.ServoCommand;
+import frc.robot.commands.SparkMaxCommand;
 import frc.robot.subsystems.ServoSubsystem;
+import frc.robot.subsystems.SparkMaxSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -22,42 +22,33 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   private final XboxController controller = new XboxController(0);
-  private final ServoSubsystem servoSub = new ServoSubsystem();
+
+  // Add more ServoSubsystems for more servos - don't name them the same thing.
+  private final ServoSubsystem servoSub = new ServoSubsystem(Constants.servoPWMPort);
+
+    // Add more SparkMaxSubsystems for more Spark Maxes - don't name them the same thing.
+  private final SparkMaxSubsystem sparkMaxSub = new SparkMaxSubsystem(Constants.SparkMaxID1);
+
+
+  // Command section: add any commands you make here!
   private final ServoCommand servoCommand = new ServoCommand(servoSub, controller);
+  private final SparkMaxCommand sparkMaxCommand = new SparkMaxCommand(sparkMaxSub, controller);
   {
+    // Set any additional servos to nameOfServo.setDefaultCommand(servoCommand);
     servoSub.setDefaultCommand(servoCommand);
+
+    // Set any additional Spark Maxes to nameOfSparkMax.setDefaultCommand(sparkMaxCommand);
+    sparkMaxSub.setDefaultCommand(sparkMaxCommand);
   }
 
-  /**
-   * The container for the robot. Contains subsystems, OI devices, and commands.
-   */
   public RobotContainer() {
     configureBindings();
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be
-   * created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with
-   * an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for
-   * {@link
-   * CommandXboxController
-   * Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or
-   * {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
   private void configureBindings() {
 
   }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
   public Command getAutonomousCommand() {
     return null;
   }
